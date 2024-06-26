@@ -5,7 +5,10 @@
 #include "sphere.hpp"
 #include <cmath>
 
-Sphere::Sphere(glm::vec3 const& center_point, double const radius): Shape(),center_point_(center_point),radius_(radius){};
+Sphere::Sphere(glm::vec3 const& center_point, double radius, Color const& color, std::string const& name):
+Shape::Shape(color,name),
+center_point_(center_point),
+radius_(radius){};
 
 double Sphere::volume() const {
     return pow(radius_,3)*M_PI*4/3;
@@ -13,4 +16,11 @@ double Sphere::volume() const {
 
 double Sphere::area() const {
     return 4*M_PI* pow(radius_,2);
+}
+
+std::ostream& Sphere::print(std::ostream &os) const {
+    os <<"position  "<< center_point_.x<<" "<< center_point_.y<< center_point_.z<<"\n"
+       <<"radius "<< radius_<<"\n";
+       Shape::print(os);
+    return os;
 }
