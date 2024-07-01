@@ -12,9 +12,10 @@ private:
     glm::vec3 max_;
 public:
     Box(glm::vec3 const& min,glm::vec3 const& max, Color const& color, std::string const& name);
-    double area() const;
-    double volume() const;
+    float area() const;
+    float volume() const;
     std::ostream & print (std :: ostream & os) const override;
+    ~Box();
 };
 
 #endif //RAYTRACER_BOX_HPP

@@ -7,11 +7,11 @@ Box::Box(glm::vec3 const& min,glm::vec3 const& max, Color const& color, std::str
         min_(min),
         max_(max){};
 
-double Box::area() const {
+float Box::area() const {
     return (max_.y-min_.y)*(max_.x-min_.x)*2+(max_.z-min_.z)*(max_.x-min_.x)*2+(max_.y-min_.y)*(max_.z-min_.z)*2;
 }
 
-double Box::volume() const {
+float Box::volume() const {
     return (max_.y-min_.y)*(max_.x-min_.x)*(max_.z-min_.z);
 }
 
@@ -20,4 +20,8 @@ std::ostream& Box::print(std::ostream &os) const {
        <<"position max "<< max_.x<<" "<< max_.y<< max_.z<<"\n";
        Shape::print(os);
     return os;
+}
+
+Box::~Box(){
+    std::cout<<"box destructor"<<"\n"<<std::endl;
 }

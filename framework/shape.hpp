@@ -12,9 +12,10 @@ protected:
     Color color_;
 public:
     Shape(Color const& color,std::string name);
-    virtual double area() const =0;
-    virtual double volume() const =0;
+    virtual float area() const =0;
+    virtual float volume() const =0;
     virtual std::ostream & print (std :: ostream & os) const;
+    ~Shape();
 };
 std::ostream& operator<<( std :: ostream & os , Shape const & s);
 
